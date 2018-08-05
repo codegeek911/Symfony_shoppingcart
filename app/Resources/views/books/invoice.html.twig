@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	<ul class="nav navbar-nav navbar-right">
+   <table class="table table-striped">
+  <thead>
+    <tr>
+    <th scope="col">Offers & Details</th>
+      <th scope="col">Total(LKR)</th>
+      <th scope="col">Edit Cart</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+    	<td><a class="btn btn-primary" href="/Booklist/detailsup">More Info</a></td>
+      <td>{{sessioncart.totalPrice}}</td>
+      <td><li><a href="/Booklist/edit"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li></td>
+    </tr>
+   </tbody>
+   </table>
+    </ul>
+
+    <h2 class="page-header">Invoice</h2>
+    <table class="table table-striped">
+   <thead>
+      <tr>
+         <th>#</th>
+         <th>Book Title</th>
+         <th>Catogory</th>
+         <th>Price</th>
+         <th>Quantity</th>
+      </tr>
+   </thead>
+   <tbody>
+    {% for book in sessioncart.cartBookItems %}
+      <tr>
+         <th scope="row">{{book.bookID}}</th>
+         <td>{{book.name}}</td>
+         <td>{{book.category}}</td>
+         <td>{{book.price}}</td>
+         <td>{{book.quantity}}</td>
+         
+      </tr>
+      {% endfor %}
+   </tbody>
+   <table class="table table-striped">
+  <thead>
+  
+  <tr>
+      <th scope="col" class="col-xs-9">Enter the Redeem Code</th>
+      <th scope="col" class="col-xs-3">
+      	{{ form_start(couponform) }}
+         {{ form_widget(couponform) }}
+         {{ form_end(couponform) }}
+      </th>
+    </tr>
+    
+
+   {% for discountDetail in sessioncart.discountDetails %}
+  	    <tr>
+      <th scope="col" class="col-xs-9">Discount - {{discountDetail.description}} => </th>
+      <th scope="col" class="col-xs-3">{{discountDetail.value}}</th>
+    </tr>
+    {% endfor %}
+
+    <tr>
+      <th scope="col" class="col-xs-9">Total(LKR) => </th>
+      <th scope="col" class="col-xs-3">{{sessioncart.totalPrice}}</th>
+    </tr>
+
+   <tr>
+      <th scope="col" class="col-xs-9">Total Discount => </th>
+      <th scope="col" class="col-xs-3">({{sessioncart.totalDiscount}})</th>
+    </tr>
+   <tr>
+      <th scope="col" class="col-xs-9">Price after discount => </th>
+      <th scope="col" class="col-xs-3">{{sessioncart.discountedTotalPrice}}</th>
+    </tr>
+   </thead>
+</table>
+
+  <a class="btn btn-primary" href="/">Continue Shopping</a>
+  <a class="btn btn-primary" href="/Booklist/edit">Back to Cart</a>
+
+	
+{% endblock %}
+

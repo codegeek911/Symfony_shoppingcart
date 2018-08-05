@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	<ul class="nav navbar-nav navbar-right">
+   <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Offers & Details</th>
+      <th scope="col">Total(LKR)</th>
+      <th scope="col">Edit Cart</th>
+      
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+      <td><a class="btn btn-primary" href="/Booklist/detailsup">More Info</a></td>
+      <td>Dummy</td>
+      <td><li><a href="/Booklist/edit"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li></td>
+    </tr>
+   </tbody>
+   </table>
+    </ul>
+
+    <h2 class="page-header">Cart Details</h2>
+    <table class="table table-striped">
+   <thead>
+      <tr>
+         <th>#</th>
+         <th>Book Title</th>
+         <th>Catogory</th>
+         <th>Price</th>
+         <th>Quantity</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <th scope="row"></th>
+         <td>No Items in cart</td>
+
+         
+      </tr>
+   </tbody>
+   <table class="table table-striped">
+  <thead>
+
+
+
+    <tr>
+      <th scope="col" class="col-xs-9">Total(LKR) => </th>
+      <th scope="col" class="col-xs-3">0</th>
+    </tr>
+   </thead>
+</table>
+
+    <a class="btn btn-primary" href="/">Continue Shopping</a>
+  <a class="btn btn-primary" href="/Booklist/edit">Back to Cart</a>
+
+	
+{% endblock %}
+

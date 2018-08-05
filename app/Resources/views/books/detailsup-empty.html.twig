@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	<ul class="nav navbar-nav navbar-right">
+   <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Total(LKR)</th>
+      <th scope="col">Edit Cart</th>
+      
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+      <td>Empty</td>
+      <td><li><a href="/Booklist/edit"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li></td>
+      
+    </tr>
+   </tbody>
+   </table>
+    </ul>
+
+    <h2 class="page-header">Current Cart State & Discount Details</h2>
+    <table class="table table-striped">
+   <thead>
+      <tr>
+      <th scope="col" class="col-xs-9">*** You do not have purchased any item yet</th>
+    </tr>
+   </thead>
+   
+   <table class="table table-striped">
+  <thead>
+  <h2 class="page-header">Discount Details</h2>
+    <tr>
+      <th scope="col" class="col-xs-9">At The Checkout</th>
+    </tr>
+
+
+    <tr>
+      <th scope="col" class="col-xs-9">*** if you buy 5 or more Children books you will be eligible for a 10% discount on all chidren books</th>
+    </tr>
+
+    <tr>
+      <th scope="col" class="col-xs-9">*** if you buy 10 books from each category you will be eligible for a 5% discount</th>
+    </tr>
+
+    <tr>
+      <th scope="col" class="col-xs-9">*** If you have a coupon code you get a 15% discount for the total bill(All other discounts will be cancelled)</th>
+    </tr>
+   </thead>
+</table>
+
+    <a class="btn btn-primary" href="/">Continue Shopping</a>
+  <a class="btn btn-primary" href="/Booklist/edit">Back to Cart</a>
+  
+	
+{% endblock %}
+

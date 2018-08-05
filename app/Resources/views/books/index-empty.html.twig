@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+   <ul class="nav navbar-nav navbar-right">
+   <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Offers & Details</th>
+      <th scope="col">Total(LKR)</th>
+      <th scope="col">Edit Cart</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+    <td><a class="btn btn-primary" href="/Booklist/detailsup">More Info</a></td>
+      <td>Empty Cart</td>
+      <td><li><a href="/Booklist/edit"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li></td>
+    </tr>
+   </tbody>
+   </table>
+    </ul>
+
+	<h2 class="page-header">Available Books</h2>
+	<table class="table table-striped">
+   <thead>
+      <tr>
+         <th>#</th>
+         <th>Book Title</th>
+         <th>Catogory</th>
+         <th>Price</th>
+         <th>Quantity</th>
+      </tr>
+   </thead>
+   <tbody>
+   	{% for bookdata in booklist %}
+      <tr>
+         <th scope="row">{{bookdata.book.id}}</th>
+         <td>{{bookdata.book.bookname}}</td>
+         <td>{{bookdata.book.category}}</td>
+         <td>{{bookdata.book.price}}</td>
+         
+         <td>
+         {{ form_start(bookdata.form) }}
+           {{ form_widget(bookdata.form) }}
+           {{ form_end(bookdata.form) }}
+         </td>
+         
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+
+
+{% endblock %}
